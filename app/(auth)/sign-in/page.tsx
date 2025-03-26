@@ -7,7 +7,7 @@ import { signIn } from "../../lib/auth-client";
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
 
   return (
     <div className="max-w-md border border-gray-300 p-4 rounded-md">
