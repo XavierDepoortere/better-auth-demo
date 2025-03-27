@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [role, setRole] = useState<number | undefined>(undefined);
+  const [roleId, setRoleId] = useState<number | undefined>(undefined);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -119,15 +119,15 @@ export default function SignUp() {
           </div>
 
           <div className="grid gap-2">
-            <label htmlFor="role" className="p-1 text-sm font-semibold">
+            <label htmlFor="roleId" className="p-1 text-sm font-semibold">
               Role
             </label>
             <select
               className="border-gray-300 border rounded-md p-1"
-              id="role"
-              value={role ?? ""}
+              id="roleId"
+              value={roleId}
               onChange={(e) =>
-                setRole(
+                setRoleId(
                   e.target.value ? parseInt(e.target.value, 10) : undefined
                 )
               }
