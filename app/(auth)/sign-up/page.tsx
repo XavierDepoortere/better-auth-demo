@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 export default function SignUp() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [role, setRole] = useState<number | undefined>(undefined);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirmation, setPasswordConfirmation] = useState("");
@@ -116,6 +117,27 @@ export default function SignUp() {
               placeholder="Confirm Password"
             />
           </div>
+
+          <div className="grid gap-2">
+            <label htmlFor="role" className="p-1 text-sm font-semibold">
+              Role
+            </label>
+            <select
+              className="border-gray-300 border rounded-md p-1"
+              id="role"
+              value={role ?? ""}
+              onChange={(e) =>
+                setRole(
+                  e.target.value ? parseInt(e.target.value, 10) : undefined
+                )
+              }
+            >
+              <option value="">Select a role</option>
+              <option value="1">Admin</option>
+              <option value="2">User</option>
+            </select>
+          </div>
+
           <div className="grid gap-2">
             <label htmlFor="image" className="p-1 text-sm font-semibold">
               Profile Image (optional)
